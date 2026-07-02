@@ -142,10 +142,10 @@ Run every hypothesis through this before it ships:
 - [ ] Supported by ≥2 *independent* evidence items (two instances of the same marker type = one item)
 - [ ] At least one structural evidence item (omission, question pattern, effort asymmetry, metadata), not phrasing alone
 - [ ] Every supporting item carries a provenance tag ([OBSERVED]/[CONTEXT]/[INFERRED]/[ASSUMED]); no untagged claims
-- [ ] Load-bearing assumptions identified and cross-referenced to the Assumptions register — the reader can see exactly what breaks if each is wrong
+- [ ] Load-bearing assumptions identified, cross-referenced to the Assumptions register, and tagged [ASSUMED — user-confirmed] or [ASSUMED — unverified] — the reader can see exactly what breaks if each is wrong, and whether it was put to the user via the Step 1.5 gate before the hypothesis was built or only surfaced afterward
 - [ ] Any user-supplied characterization the hypothesis relies on is flagged as such ([CONTEXT], one party's account), not treated as ground truth
 - [ ] The strongest boring explanation from the false-positive table has been stated and addressed
 - [ ] Disconfirming/unexplained evidence listed (if none exists, the hypothesis is too vague)
-- [ ] Confidence label justified: High requires convergent multi-type evidence + baseline deviation AND no load-bearing [ASSUMED] items; phrasing-only support caps at Medium; single-email material caps at Medium regardless
+- [ ] Confidence label justified: High requires convergent multi-type evidence + baseline deviation AND no load-bearing [ASSUMED — unverified] items (a load-bearing assumption that reached [ASSUMED — user-confirmed] via the gate no longer blocks High on its own, but state what was confirmed); phrasing-only support caps at Medium; single-email material caps at Medium regardless
 - [ ] Has a concrete discriminating test the user can actually run — tests that retire a load-bearing assumption rank first
 - [ ] Contains no clinical/diagnostic labels and no claims about the person's character — only about their probable interests and constraints in this situation

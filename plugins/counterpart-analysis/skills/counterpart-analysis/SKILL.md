@@ -29,7 +29,7 @@ Apply these throughout the evidence layer, the interest map, and the hypotheses.
 - **[OBSERVED]** — Verbatim in the analyzed material, or a directly countable fact about it (word choice, an ignored question, a CC change, turn order). The strongest class. Quote it.
 - **[CONTEXT]** — Known from outside the material: what the user has said about the person, the relationship, the history, or the stakes; facts established earlier in the conversation or in supplied documents; anything already known about the user's organization or situation from surrounding context. Reliable for verifiable facts (roles, dates, org structure). **Weaker for characterizations** ("he's always political", "she never liked this project") — these are one party's account, usually the user's, and carry the user's own framing bias. Treat characterizations as claims to be tested against the material, not as ground truth; where a conclusion depends on the user's characterization being accurate, say so.
 - **[INFERRED]** — Derived from [OBSERVED] and/or [CONTEXT] via a stated marker or framework rule ("the shift from 'I' to 'we' at 14:02 [OBSERVED] plus her lack of budget authority [CONTEXT] suggests the pushback originates above her [INFERRED]"). Every inference must show its inputs.
-- **[ASSUMED]** — Filler with no direct support in the material or supplied context: role priors ("procurement leads are typically measured on savings"), base rates, guesses about org norms, presumed reporting lines. Assumptions are permitted — analysis is impossible without them — but every one must be (a) tagged where used, (b) listed in the Assumptions register, and (c) marked **load-bearing** if a hypothesis materially weakens or dies without it. A load-bearing assumption is a question to ask the user or the counterpart, not a fact.
+- **[ASSUMED]** — Filler with no direct support in the material or supplied context: role priors ("procurement leads are typically measured on savings"), base rates, guesses about org norms, presumed reporting lines. Assumptions are permitted — analysis is impossible without them — but every one must be (a) tagged where used, (b) listed in the Assumptions register, and (c) marked **load-bearing** if a hypothesis materially weakens or dies without it. A load-bearing assumption is a question to ask the user or the counterpart, not a fact. The tag comes in two states: **[ASSUMED — unverified]** (the analyst's own prior, not yet put to the user) and **[ASSUMED — user-confirmed]** (surfaced to the user via the Step 1.5 gate below, and confirmed, corrected, or explicitly left as "unknown — proceed"). A load-bearing assumption should reach the confirmed state *before* it's built into a hypothesis, not just be disclosed alongside the finished one — see Step 1.5.
 
 Rule of thumb: if the user could read a claim and reasonably ask "wait, how do you know that?" — it needed a tag showing exactly how, or an [ASSUMED] admitting you don't.
 
@@ -53,6 +53,19 @@ Before close-reading the material, deliberately gather everything available *out
 - **Situational frame** — where in a lifecycle this exchange sits (renewal window, reorg, post-incident, pre-review, quarter-end), since the same words mean different things at different moments. Tag by source.
 
 If high-value context is missing and the stakes appear significant, ask the user up to three targeted questions before analyzing (the highest-yield ones, in order: *What is this person's role and who do they report to? What's the history between you? What decision or event is this conversation attached to?*). If the user isn't available, the stakes are low, or they've asked for a quick read, proceed — and convert each missing item into an explicit entry in the Assumptions register rather than silently guessing.
+
+### Step 1.5 — Confirm load-bearing assumptions (gate)
+
+Before moving to the baseline, stop and check the assumptions surfaced so far — plus any obvious ones the situation implies — against two conditions: is it (a) unverifiable from the material or supplied context, and (b) **load-bearing**, meaning at least one plausible hypothesis would materially weaken or collapse if it turned out wrong? If any assumption meets both, it needs to be put to the user *before* it gets built into an analysis, not disclosed alongside the finished one.
+
+- Present them as a short numbered list, each with a one-line statement of what it asserts and why it matters ("Assuming the timeline pressure she's reporting connects to the Q4 renewal — if it's actually unrelated, the urgency read changes").
+- Ask the user to confirm, correct, or mark it "unknown — proceed with the assumption flagged."
+- Fold the answers back in: a confirmed or corrected item becomes **[ASSUMED — user-confirmed]** (or is promoted straight to [CONTEXT] if the user is supplying a known fact rather than blessing a guess); an item the user can't resolve stays **[ASSUMED — unverified]**, but it has now been seen and knowingly accepted rather than sprung on them at the end.
+- This can ride on the same message as the Step 1 clarifying questions when both apply — don't force two separate round-trips if one will do.
+
+This gate is mandatory whenever a load-bearing assumption exists and the stakes are non-trivial. Skip it only when: (a) the user has explicitly asked for a quick, low-stakes read, or (b) every candidate load-bearing assumption is already settled by [OBSERVED] or [CONTEXT] material, i.e. there's genuinely nothing left to confirm. When skipped, say so in one line near the top of the output rather than silently omitting it. Don't proceed to build hypotheses on an un-surfaced load-bearing assumption just because asking feels like friction — the entire point of the gate is that the user shapes the assumption before it shapes the conclusion, not after.
+
+New load-bearing assumptions sometimes only become apparent during Steps 3–5, after this gate has already run. When that happens, they don't retroactively invalidate the gate — but flag them plainly in "What to do" (Step 6) as unconfirmed and worth checking, since they never got the chance to be surfaced up front.
 
 ### Step 2 — Establish the baseline
 
@@ -95,19 +108,24 @@ For the target (and briefly for other participants where relevant), build the ma
 Synthesize into **2–3 competing hypotheses** about the person's angle. For each:
 
 - **The hypothesis**, in one plain sentence ("They want out of the contract but need you to be the one who breaks it").
-- **Confidence**: High / Medium / Low, with a one-line justification. Be stingy with High — it requires convergent evidence from multiple independent markers plus structural evidence, not phrasing alone, and no load-bearing [ASSUMED] items.
+- **Confidence**: High / Medium / Low, with a one-line justification. Be stingy with High — it requires convergent evidence from multiple independent markers plus structural evidence, not phrasing alone, and no load-bearing [ASSUMED — unverified] items (a load-bearing assumption the user confirmed via the Step 1.5 gate doesn't block High on its own).
 - **Supporting evidence**: the 2–4 strongest items from Steps 3–4, quoted and tagged.
 - **Disconfirming / unexplained evidence**: anything in the material or context that cuts against it. If you can't find any, look harder — its absence usually means the hypothesis is unfalsifiably vague.
-- **Load-bearing assumptions**: which [ASSUMED] items this hypothesis depends on, stated plainly ("this reading assumes she owns the renewal decision — if that sits with procurement, H1 collapses into H2").
+- **Load-bearing assumptions**: which [ASSUMED] items this hypothesis depends on, stated plainly ("this reading assumes she owns the renewal decision — if that sits with procurement, H1 collapses into H2"), each marked **[ASSUMED — user-confirmed]** or **[ASSUMED — unverified]**. An unverified load-bearing assumption at this stage means either the Step 1.5 gate was skipped (say why) or the assumption only emerged during Steps 3–5 — either way, flag it forward into Step 6 rather than let it sit quietly in the register.
 - **Discriminating test**: what could the user ask, propose, or watch for that would separate this hypothesis from its rivals? Prefer calibrated questions ("How did you arrive at that timeline?", "What happens on your side if this slips?") and no-oriented questions ("Would it be unreasonable to...?") — these surface information without triggering defensiveness. A small trial proposal ("strawman") that the hypotheses predict different reactions to is often the cleanest test. Tests that would verify a load-bearing assumption rank highest.
 
 ### Step 6 — Practical layer
 
-End with a short, action-oriented section:
+Before writing a single word of advice, establish what the *user* is optimizing for — this is a different question from what would make the counterpart comfortable, and it determines everything that follows.
 
-- **What they likely want from this** (the top hypothesis, stated plainly, with its confidence caveat and its most fragile assumption).
-- **What to do next**: 3–5 concrete moves — questions to ask, information to withhold or share, framing to use, traps to avoid. Ground these in the analysis, not generic negotiation advice.
+- **Establish the user's goal first.** Ask directly: *"What does a satisfactory outcome look like for you here? What do you actually want from this situation or this interaction?"* If the user has already stated this clearly — in the supplied material, the request, or earlier in the conversation — don't ask again; extract it explicitly and confirm it back ("Based on what you've said, I'm reading your goal as [X] — is that right?"). Never infer the user's goal from what the counterpart's behavior implies they'd find comfortable — those are separate questions, and defaulting to the low-friction reading on the user's behalf is exactly the failure this step exists to prevent.
+
+Then, with the goal established, write the section:
+
+- **What they likely want from this** (the counterpart's top hypothesis, stated plainly, with its confidence caveat and its most fragile assumption) — this is analysis feeding the advice, not the advice itself.
+- **What to do next**: 3–5 concrete moves, each assessed against the user's stated goal — not against friction-minimization or relationship-preservation as unstated defaults. Ground these in the analysis, not generic negotiation advice. Where the move that best serves the user's goal diverges from the move that would be most comfortable for the counterpart, say so explicitly and let the user choose which they're optimizing for — don't quietly pick the smoother path for them.
 - **What to watch in the next interaction**: the specific signals that would confirm or kill the leading hypothesis.
+- **Confidence flags** (e.g. "this is a Medium-confidence read in a high-stakes situation") frame the risk of a move *toward the user's stated goal* — they are not license to steer the user toward a more comfortable goal than the one they actually stated.
 
 ## Output format
 
@@ -117,7 +135,7 @@ ALWAYS use this template (omit sections that genuinely don't apply; keep the ord
 # Read: [situation, one line]
 
 **Material analyzed:** [type, length, participants] · **Target:** [person]
-**Confidence ceiling:** [one line — how much this material + context can actually support, and key missing context]
+**Confidence ceiling:** [one line — how much this material + context can actually support, key missing context, and whether the Step 1.5 assumption gate ran or was skipped (and why)]
 
 ## The short version
 [2–4 sentences: the leading hypothesis, how sure you are, and the one assumption it most depends on.]
@@ -125,7 +143,7 @@ ALWAYS use this template (omit sections that genuinely don't apply; keep the ord
 ## Inputs & assumptions
 **From the material [OBSERVED]:** [the 3–6 load-bearing facts, compressed]
 **From context [CONTEXT]:** [what the user supplied / what was already known — flag any characterizations being relied on]
-**Assumed [ASSUMED]:** [numbered register: every assumption made, each marked (load-bearing for H1/H2/...) or (minor); missing context converted to entries here]
+**Assumed:** [numbered register: every assumption made, each tagged **[ASSUMED — user-confirmed]** or **[ASSUMED — unverified]**, and marked (load-bearing for H1/H2/...) or (minor); missing context converted to entries here]
 
 ## Evidence
 [The quote-level tells, grouped by theme, each as: quote [OBSERVED] → marker → reading(s) [INFERRED, citing inputs]. Flag clusters and baseline shifts. Include structural evidence: ignored points, volunteered info, questions asked, effort asymmetry.]
@@ -141,10 +159,11 @@ Supporting: ... / Against: ... / Load-bearing assumptions: [refs to register #s]
 [H3 if warranted]
 
 ## What to do
-[Concrete next moves and what to watch for. Lead with any move that cheaply verifies a load-bearing assumption.]
+**User's stated goal:** [one sentence — the user's own words, or the analyst's confirmed extraction]
+[Concrete next moves and what to watch for, each assessed against that goal. Lead with any move that cheaply verifies a load-bearing assumption. Flag explicitly if the move that best serves the user's goal differs from the lowest-friction move with the counterpart.]
 ```
 
-For quick, low-stakes asks ("what do you make of this two-line reply?"), compress: short version, 2–3 tagged evidence points, hypotheses inline with their key assumption named, one suggested move. Don't inflate thin material into a long report — the report length should track the evidence, not the template. The provenance tags survive compression; they are the last thing to cut, not the first.
+For quick, low-stakes asks ("what do you make of this two-line reply?"), compress: short version, 2–3 tagged evidence points, hypotheses inline with their key assumption named, one suggested move named against the user's goal (even a one-clause goal — "you said you just want this to stop escalating" — still counts). This is the case the Step 1.5 gate's low-stakes exception covers; skip the formal confirmation round-trip but don't skip naming the goal. Don't inflate thin material into a long report — the report length should track the evidence, not the template. The provenance tags survive compression; they are the last thing to cut, not the first.
 
 ## Calibration rules (read before writing conclusions)
 
@@ -157,6 +176,8 @@ For quick, low-stakes asks ("what do you make of this two-line reply?"), compres
 - **No clinical or diagnostic language.** Never label anyone with personality disorders, "narcissist", "gaslighting", or psychiatric terms. Describe behavior and plausible motivation; do not diagnose people.
 - **Asymmetric costs:** flag when the user is about to act on a Low/Medium-confidence read in a high-stakes way, and steer toward the discriminating test instead of the irreversible move.
 - **Written text ≠ mind-reading.** Text lacks the 38% (tone) and 55% (body language) channels. Say this once when the stakes warrant it.
+- **Surface load-bearing assumptions before building on them, not after.** If a hypothesis depends on an [ASSUMED — unverified] item, that belongs in the Step 1.5 gate before the hypothesis is finalized, per the core stance — not just disclosed in the final register once the conclusion is already shaped by it.
+- **The user's goal is not the counterpart's comfort.** The practical layer serves what the user said they want, not the path that would leave the counterpart least disturbed. Where the two diverge, say so and let the user pick — don't resolve the tension on their behalf by defaulting to the smoother option.
 
 ## Ethics boundary
 
@@ -179,8 +200,13 @@ Analysis sketch:
 - "leadership has been asking" [OBSERVED] — invoked higher authority; classic constraint signal: the pressure is real but not hers, or she's borrowing authority for a request she's uncomfortable making directly. Her mid-level role [CONTEXT] makes genuine upward pressure the likelier reading [INFERRED].
 - "something firmer" + "when you have a chance" + "No rush at all!" [OBSERVED] — a firm-commitment request wrapped in three softeners, ending with an exclamation-marked minimizer. The content and the register point in opposite directions; incongruence cluster.
 - Structural [OBSERVED]: the *only* substantive content in the email is the timeline request. Everything else is padding around it.
-- Assumption register: (1) [ASSUMED] her leadership's timeline interest relates to the Q4 renewal decision — plausible given [CONTEXT], unverified, **load-bearing for H1's stakes assessment**; (2) [ASSUMED] she has no independent deadline authority — from role prior, minor.
+- Assumption register: (1) [ASSUMED — unverified] her leadership's timeline interest relates to the Q4 renewal decision — plausible given [CONTEXT], **load-bearing for H1's stakes assessment**; (2) [ASSUMED — unverified] she has no independent deadline authority — from role prior, minor, not load-bearing enough to gate.
 
-H1 (Medium-High): She is under real internal deadline pressure — plausibly renewal-linked per assumption #1 — and needs a date to report upward; the softeners manage the relationship, not the urgency. Test: reply with a concrete date range plus "What's driving the timeline question on your side — is there a date leadership is working toward?" — the answer surfaces the real constraint *and* verifies assumption #1.
+Step 1.5 gate: assumption (1) is load-bearing and unverifiable from the material, so it goes to the user before H1 is finalized: *"I'm assuming this timeline pressure connects to the Q4 renewal — is that right, or is something else driving it?"* Say the user confirms the renewal link — assumption (1) is promoted to **[ASSUMED — user-confirmed]**, and H1 below is built on the confirmed version rather than the raw guess. Assumption (2) is minor and not load-bearing, so it isn't gated — it stays [ASSUMED — unverified] in the register.
+
+H1 (Medium-High, built on the user-confirmed renewal link): She is under real internal deadline pressure — renewal-linked per confirmed assumption #1 — and needs a date to report upward; the softeners manage the relationship, not the urgency. Test: reply with a concrete date range plus "What's driving the timeline question on your side — is there a date leadership is working toward?" — the answer surfaces the real constraint and further pins down the renewal link.
 H2 (Low-Medium): Routine status hygiene; "leadership asking" is a stock phrase in her org. Against H2: people rarely triple-soften routine asks.
-Move: treat it as urgent, answer with specifics, and ask the calibrated question — cheap if H2, exactly right if H1, and it retires the load-bearing assumption either way.
+
+Step 6 gate: before recommending a move, the user's goal was established — they said they want the renewal to close on favorable terms without the PM feeling stonewalled in the meantime. **User's stated goal:** protect the Q4 renewal timeline while keeping the relationship workable.
+
+Move: treat it as urgent and answer with specifics — the date-plus-calibrated-question response serves the stated goal (protecting the renewal) directly, not merely the option that would be most comfortable for the PM (which might have been "no rush at all, we'll circle back"); it's cheap if H2, exactly right if H1, and it doesn't depend on assumption (2) either way.
