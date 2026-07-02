@@ -34,7 +34,18 @@ claude plugin install counterpart-analysis@agent-skills
 
 Update later with `/plugin update` (or `/plugin marketplace update agent-skills`).
 
-### Manual (Claude Code, Codex, and other agentskills.io-compatible agents)
+### OpenCode
+
+OpenCode has native SKILL.md support and — usefully — already reads Claude Code's own skill directories, so no path translation is needed:
+
+```bash
+git clone https://github.com/joneslloyd/agent-skills.git
+cp -r agent-skills/plugins/counterpart-analysis/skills/counterpart-analysis ~/.claude/skills/
+```
+
+For a project-local install, copy into `.opencode/skills/`, `.claude/skills/`, or `.agents/skills/` at your repo root instead (OpenCode checks all three, walking up to the git root). Globally, `~/.config/opencode/skills/`, `~/.claude/skills/`, and `~/.agents/skills/` are all read. OpenCode has no repo-based marketplace/install command today — see [Updating](#updating) below for how to pull new versions of the skill by hand.
+
+### Manual (Codex and other agentskills.io-compatible agents)
 
 Copy the skill folder into your agent's skills directory:
 
@@ -48,6 +59,17 @@ For a repo-local install, use `.claude/skills/` in your project instead of `~/.c
 ### Claude.ai / Claude apps
 
 Download the packaged `.skill` file from [Releases](../../releases) and upload it in a conversation — the file card shows a **Save skill** button (requires an org/plan that allows skill creation), or add it via Settings → Capabilities → Skills.
+
+### Updating
+
+The OpenCode and manual-copy paths above have no auto-update mechanism — re-run this whenever you want the latest version:
+
+```bash
+cd agent-skills && git pull
+cp -r plugins/counterpart-analysis/skills/counterpart-analysis ~/.claude/skills/   # or your chosen skills dir
+```
+
+(Claude Code plugin installs update via `/plugin update` instead — see above. Claude.ai `.skill` uploads must be re-downloaded and re-uploaded by hand.)
 
 ## Repository structure
 
