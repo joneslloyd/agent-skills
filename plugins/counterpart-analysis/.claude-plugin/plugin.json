@@ -1,0 +1,9 @@
+{
+  "name": "counterpart-analysis",
+  "description": "Read transcripts, email threads, and situations to infer each participant's underlying interests, constraints, and likely angle — with quote-level linguistic evidence, explicit fact-vs-assumption provenance tagging, and confidence-ranked competing hypotheses.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Lloyd Jones"
+  },
+  "license": "MIT"
+}

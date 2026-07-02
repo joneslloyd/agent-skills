@@ -1,0 +1,29 @@
+{
+  "name": "agent-skills",
+  "description": "Agent skills from Lloyd Jones — AI governance, delivery, and situational analysis.",
+  "owner": {
+    "name": "Lloyd Jones",
+    "email": "lloyd@lloydjones.io"
+  },
+  "plugins": [
+    {
+      "name": "counterpart-analysis",
+      "source": "./plugins/counterpart-analysis",
+      "description": "Read transcripts, email threads, and situations to infer each participant's underlying interests, constraints, and likely angle — with quote-level linguistic evidence, explicit fact-vs-assumption provenance tagging, and confidence-ranked competing hypotheses.",
+      "author": {
+        "name": "Lloyd Jones"
+      },
+      "license": "MIT",
+      "category": "analysis",
+      "keywords": [
+        "negotiation",
+        "stakeholder-analysis",
+        "transcript-analysis",
+        "communication",
+        "subtext",
+        "motivation",
+        "meeting-analysis"
+      ]
+    }
+  ]
+}
